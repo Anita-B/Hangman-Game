@@ -1,1 +1,41 @@
 /**************** general ****************/
+body {
+	background-image: url("../images/background2.png");
+    background-repeat: repeat;
+    /*background-color: violet;*/
+}
+h1 {
+	padding: 20px;
+	/* font style */
+	font-family: 'Coming Soon', cursive;
+	font-size: 45px;
+	text-align: center;
+}
+h2 {
+	padding: 5px;
+	/* font style */
+	font-family: 'Coming Soon', cursive;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+}
+#wrapGame {
+	margin: 50px auto;
+	width: 960px;
+	height: 550px;
+	background-color: rgba(196, 175, 234, .8);
+}
+section {
+	margin-top: 40px;
+	width: 400px;
+	float: left;
+}
+aside {
+	margin-top: 40px;
+	width: 500px;
+	float: right;
+}
+img { 
+	width: 400px;
+	height: 350px;
+}

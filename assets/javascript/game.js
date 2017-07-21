@@ -1,6 +1,6 @@
 //declare variables and arrays
-//var authors = ["ANGELOU", "AUSTEN", "BRONTE", "DOSTOYEVSKY", "JOYCE", "KAFKA", "ROWLING", "SHAKESPEARE"];
-var authors = ["BEE", "ANT", "DOG"];
+var authors = ["BEE", "CHEETAH", "DINOSAUR", "DUCK", "FISH", "FOX", "FRIENDS", "HAMSTER", "HEART", "MOUSE", "OSTRICH", "OWL", "PIRATE", "RAINBOW", "REINDEER", "SUN", "TRIANGLE", "WITCH"];
+//var authors = ["BEE", "ANT", "DOG"];
 var chosenAuthor;
 var dashesArray = [];
 var wins = 0;
@@ -17,7 +17,7 @@ var lookForDashes;
 	// Randomly chooses an author from the authors array. This is the Computer's choice.
 	// It has full author names in it, like AUSTEN, BRONTE, etc
 	chosenAuthor = authors[Math.floor(Math.random() * authors.length)];
-console.log(chosenAuthor);
+
 	//push as many underscores as there are letters in the author name into the dashesArray
 	for (var i = 0; i < chosenAuthor.length; i++){
 		dashesArray.push(" _ ");
@@ -39,10 +39,12 @@ document.onkeyup = function(event) {
 console.log("in the onkeyup function");
 	if(numGuesses > 0 && foundDashesInAuthors == true){	
 
+		document.getElementById("artwork").src = "assets/images/img_initial2.png";
+
 		// Determines which key was pressed.
 		// Make it uppercase in order to compare it with author name
 	    var playerLetter = event.key.toUpperCase();
-console.log(playerLetter);
+
 	    // Check in the chosen author's name for the guessed playerLetter
 	    for (var i = 0; i < chosenAuthor.length; i++){
 
@@ -55,7 +57,7 @@ console.log(playerLetter);
 
 		    	//display guess
 		    	guessedRight.innerHTML = dashesArray.join(" ");
-console.log(dashesArray);
+
 		    	//check to see if word has been guessed
 		    	//if yes, reset the game, no, keep playing
 		    	lookForDashes = dashesArray.indexOf(" _ ");
@@ -65,7 +67,6 @@ console.log(dashesArray);
 	    		}
 
 				foundLetterInAuthors++;
-				console.log(foundDashesInAuthors + " " + foundLetterInAuthors);
 
 		    } // end if
 
@@ -75,15 +76,12 @@ console.log(dashesArray);
 	    // if foundLetterInAuthors === 0, then that letter wasn't found. 
 	    if (foundLetterInAuthors === 0){
 
-	    	console.log("letter not found" + lettersNo.length + " " + lettersNo);
 
 		    // display the letter in guessedWrong ID
 	    	for (var k = 0; k < lettersNo.length; k++){
-	    		//console.log("lettersNo[k] " + lettersNo[k] + "playerLetter " + playerLetter);
 
 	    		if (lettersNo[k] === playerLetter){
 	    			foundInLettersNo = true;
-	    			//console.log("letter is in lettersNo");
 	    		}	
 	    	}
 
@@ -104,6 +102,11 @@ console.log(dashesArray);
 	else if (foundDashesInAuthors == false){
 		// add to wins
 		winsTotal.innerHTML = ++wins;
+
+		//load the image
+		var imgName = chosenAuthor.toLowerCase();
+		document.getElementById("artwork").src = "assets/images/img_" + imgName + ".png";
+
 		// reset flags and variables
 		numGuesses = 10;
 		foundDashesInAuthors = true;
